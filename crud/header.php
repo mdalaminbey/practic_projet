@@ -27,13 +27,10 @@ require_once './../helper.php';
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo get_root_url('crud/index.php')?>">index</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo get_root_url('crud/index.php')?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo get_root_url('crud/add-new.php')?>">add new</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="<?php echo get_root_url('crud/add-new.php')?>">Add New</a>
         </li>
       </ul>
     </div>

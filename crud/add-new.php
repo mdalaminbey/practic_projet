@@ -39,14 +39,14 @@ if ( !empty( $_REQUEST['full_name'] ) && !empty( $_REQUEST['email'] ) ) {
 		$errors[] = "This email is already exists";
 	}
 	// echo strlen($full_name);
-		if(strlen($full_name) >5 && $full_name <10){
-			$errors[] = "full_name should be more than 10 characters";
+		if(strlen($full_name) <5 || strlen($full_name) >10){
+			$errors[] = "full_name should be less than 5 characters or more than 10 characters";
 		}
-		if(strlen($email) >15 && $email <22){
-			$errors[] = "email should be more than 22 characters";
+		if(strlen($email) <15 || strlen($email) >50){
+			$errors[] = "email should be less than 15 characters or more than 50 characters";
 		}
-		if(strlen($village) >4 && $village <9){
-			$errors[] = "village should be more than 9 characters";
+		if(strlen($village) <4 || strlen($village) >255){
+			$errors[] = "village should be less than 4 characters or more than 255 character";
 		}
 		if(empty($errors)){
 			insert($full_name, $email, $village);
@@ -86,4 +86,4 @@ if ( !empty( $_REQUEST['full_name'] ) && !empty( $_REQUEST['email'] ) ) {
 </div>
 
 
-<?php include_once get_root_dir( '/from_projet/footer.php' );?>
+<?php include_once get_root_dir( '/crud/footer.php' );?>

@@ -10,6 +10,8 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 		$connection_db = connection_db();
 
 		$connection_db->query($insert_query);
+
+		return true;
 	}
 
 	$email = email_validation($_REQUEST['email']);

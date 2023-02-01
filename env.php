@@ -2,7 +2,7 @@
 function my_env($key)
 {
     $values = [
-        'domain'    => 'http://localhost/practic_projet/',
+        'domain'    => 'http://localhost/nuraalam/practic_projet/',
         'db_host'    => 'localhost',
         'db_username' => 'root',
         'db_password' => '',

@@ -49,5 +49,9 @@ if (empty($errors)) {
     $_SESSION['errors'] = $errors;
 }
 
+// echo "<pre>";
+// print_r($_SERVER);
+// echo"</pre>";
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;

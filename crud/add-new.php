@@ -51,19 +51,30 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 	if (strlen($village) < 4 || strlen($village) > 255) {
 		$errors[] = "village should be less than 4 characters or more than 255 character";
 	}
+
+	  $insert  = false;
 	if (empty($errors)) {
-		insert($full_name, $email, $village);
-	} else {
-		echo "<pre>";
-		print_r($errors);
-		echo "</pre>";
+		$insert = insert($full_name, $email, $village);
 	}
+	
 }
 ?>
 
 <div class="container">
 	<div class="row">
 		<form method="post" action="">
+
+			<?php
+				if($insert){
+					echo 'suceessfull new message';
+				} else {
+					echo "<pre>";
+					print_r($errors);
+					echo "</pre>";
+				}
+			?>
+
+
 			<div class="mb-3">
 				<label class="form-label">Full Name <span style="color:red">*</span></label>
 				<input type="text" name="full_name" class="form-control">

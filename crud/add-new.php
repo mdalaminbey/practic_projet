@@ -52,11 +52,12 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 		$errors[] = "village should be less than 4 characters or more than 255 character";
 	}
 
-	  $insert  = false;
+	$insert = false;
+
 	if (empty($errors)) {
 		$insert = insert($full_name, $email, $village);
 	}
-	
+
 }
 ?>
 
@@ -65,15 +66,26 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 		<form method="post" action="">
 
 			<?php
-				if($insert){
-					echo 'suceessfull new message';
-				} else {
-					echo "<pre>";
-					print_r($errors);
-					echo "</pre>";
-				}
+			if (isset($insert) && $insert === true) {
+				?>
+				<div class="alert alert-success" role="alert">
+					Country created successfully!
+				</div>
+				<?php
+			} elseif (!empty($errors)) {
+				?>
+				<div class="alert alert-danger" role="alert">
+					<ul>
+						<?php
+						foreach ($errors as $error) {
+							echo "<li>" . $error . "</li>";
+						}
+						?>
+					</ul>
+				</div>
+				<?php
+			}
 			?>
-
 
 			<div class="mb-3">
 				<label class="form-label">Full Name <span style="color:red">*</span></label>

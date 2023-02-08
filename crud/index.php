@@ -7,7 +7,29 @@ $conn = connection_db();
 $result = $conn->query($sql);
 $students = $result->fetch_all(MYSQLI_ASSOC);
 
+session_start();
+
 ?>
+
+
+<?php if (isset($_SESSION['success'])): ?>
+				<div class="alert alert-success" role="alert">
+					<?php echo $_SESSION['success'];
+					unset($_SESSION['success']);
+					?>
+				</div>
+			<?php endif; ?>
+
+      
+  <?php if (isset($_SESSION['error'])): ?>
+  <div class="alert alert-danger" role="alert">
+					<?php echo $_SESSION['error'];
+					unset($_SESSION['error']);
+					?>
+				</div>
+			<?php endif; ?>
+
+
 
 <table class="table">
   <thead>
@@ -37,7 +59,7 @@ $students = $result->fetch_all(MYSQLI_ASSOC);
         </td>
         <td>
           <a href='edit.php?id=<?php echo $row['id']; ?>'>Edit</a>
-          <a href='delete-inline.php'>Delete</a>
+          <a href='delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
         </td>
       </tr>
     <?php endforeach; ?>

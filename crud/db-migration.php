@@ -17,5 +17,8 @@ $count_db_create_query = "CREATE TABLE IF NOT EXISTS COUNTY (
 $result = $connection_db->query( $count_db_create_query );
 
 if ( !$result ) {
-    printf( "Could not create table: %s<br />", $connection_db->error );
+    printf( "Could not create table: %s<br/>", $connection_db->error );
+}else{
+    echo "sucessfull create table agent";
 }
+

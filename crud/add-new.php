@@ -29,6 +29,7 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 	/**
 	 * Input sanitization
 	 */
+
 	$full_name = htmlentities($_REQUEST['full_name'], ENT_QUOTES, 'UTF-8');
 	$village = isset($_REQUEST['village']) ? htmlentities($_REQUEST['village'], ENT_QUOTES, 'UTF-8') : '';
 
@@ -52,20 +53,21 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 		$errors[] = "village should be less than 4 characters or more than 255 character";
 	}
 
-	$insert = false;
-
+	//   $insert  = false;
 	if (empty($errors)) {
 		$insert = insert($full_name, $email, $village);
 	}
-
+	
 }
+
 ?>
 
 <div class="container">
 	<div class="row">
-		<form method="post" action="">
-
-			<?php
+	<form method="post" action="">
+		
+<?php
+				
 			if (isset($insert) && $insert === true) {
 				?>
 				<div class="alert alert-success" role="alert">
@@ -86,6 +88,7 @@ if (!empty($_REQUEST['full_name']) && !empty($_REQUEST['email'])) {
 				<?php
 			}
 			?>
+			
 
 			<div class="mb-3">
 				<label class="form-label">Full Name <span style="color:red">*</span></label>
